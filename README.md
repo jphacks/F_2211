@@ -1,9 +1,14 @@
-# サンプル（プロダクト名）
+# A cup of coffee
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2022/08/JPHACKS2022_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
 
 ## 製品概要
+————作業をしたいからカフェに入りたい...けど安いコーヒーのあるお店がどこにあるのかわからない...そんな時はありませんか？
+
+このサービスは「一杯のコーヒー」の値段でお店を選べるサービスです。地図上には値段が表示されています
+
 ### 背景(製品開発のきっかけ、課題等）
+
 ### 製品説明（具体的な製品の説明）
 ### 特長
 #### 1. 特長1
