@@ -37,7 +37,7 @@ const Home = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* ~/components/Header.jsxを編集することで表示を変えられる */}
-      <Header />
+      {/* <Header /> */}
       <div className={styles["card--container"]}>
         {/* 配列をmapで回して一個づつ表示 */}
         {shops.map((shop, idx) => (

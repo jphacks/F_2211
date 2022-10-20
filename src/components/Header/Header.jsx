@@ -1,5 +1,6 @@
 import styles from "./header.module.css";
 import ImageContainer from "../ImageContainer/ImageContainer";
+import Link from "next/link"
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
       </div>
       <div className={styles["header--section"]}>
         <div>検索</div>
-        <div>ユーザー</div>
+        <Link href={"/signup"}>ユーザー</Link>
       </div>
     </header>
   );
