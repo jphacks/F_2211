@@ -4,6 +4,7 @@ import Link from "next/link"
 
 const Header = () => {
   return (
+    <>
     <header className={styles.container}>
       <div className={styles["header--section"]}>
         <ImageContainer imagePath="/coffee.png" size="medium" />
@@ -13,7 +14,9 @@ const Header = () => {
         <div>検索</div>
         <Link href={"/signup"}>ユーザー</Link>
       </div>
-    </header>
+      </header>
+      <div className={styles.pad}></div>
+    </>
   );
 };
 
