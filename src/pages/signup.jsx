@@ -2,6 +2,8 @@ import { auth } from "../lib/clientApp";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import Input from "../components/Input/Input";
+import Button from "../components/Button/Button";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -34,20 +36,22 @@ const SignUp = () => {
       <p>SignUp</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
-        <input
+        <Input
           type="email"
           name="email"
           id="email"
+          width="40%"
           onChange={(event) => handleChangeEmail(event)}
         />
         <label htmlFor="password">Password</label>
-        <input
+        <Input
           type="password"
           name="password"
           id="password"
+          width="40%"
           onChange={(event) => handleChangePassword(event)}
         />
-        <button>登録</button>
+        <Button>登録</Button>
       </form>
     </>
   );
