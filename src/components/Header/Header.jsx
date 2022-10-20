@@ -8,7 +8,7 @@ const Header = () => {
     <header className={styles.container}>
       <div className={styles["header--section"]}>
         <ImageContainer imagePath="/coffee.png" size="medium" />
-        <h1>A CUP OF COFFEE</h1>
+        <Link href={"/"}>A CUP OF COFFEE</Link>
       </div>
       <div className={styles["header--section"]}>
         <div>検索</div>

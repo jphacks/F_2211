@@ -31,11 +31,9 @@ const Signin = () => {
           <label>パスワード</label>
           <input name="password" type="password" placeholder="password" />
         </div>
-        <hr />
         <div>
           <button>ログイン</button>
         </div>
-        <hr />
         <div>
           <Link href={'/signup'}><button>Register</button>
           </Link>
