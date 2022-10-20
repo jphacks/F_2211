@@ -1,0 +1,41 @@
+.larger {
+  width: 80px;
+  height: 80px;
+}
+
+.large {
+  width: 44px;
+  height: 44px;
+}
+
+.medium {
+  width: 32px;
+  height: 32px;
+}
+
+.small {
+  width: 24px;
+  height: 24px;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transition: all 0.4s ease 0s;
+
+  border-radius: 50%;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transition: all 0.4s ease 0s;
+
+  border-radius: 0;
+}
