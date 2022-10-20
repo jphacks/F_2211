@@ -1,0 +1,28 @@
+.input {
+  position: relative;
+  width: 100%;
+  max-height: 8rem;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 2.5;
+  color: var(--text);
+  background-color: var(--white1);
+  border: 1px solid var(--white2);
+  border-radius: 4px;
+  outline: none;
+  transition-duration: 0.4s;
+}
+
+.input::placeholder {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--black2);
+}
+
+.input:focus:read-write {
+  border: 1px solid var(--black1);
+}
+
+.input:read-only {
+  color: var(--black2);
+}
