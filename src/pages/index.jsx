@@ -1,9 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import { db } from "../lib/clientApp";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/index.module.css";
 
 const Home = (props) => {
   const { data } = props;
@@ -46,7 +46,7 @@ const Home = (props) => {
             style={{
               display: "flex",
               flexDirection: "column",
-              border: "1px solid pink",
+              border: "1px solid var(--pink1)",
               width: "100%",
               margin: "1rem",
               padding: "1rem",
