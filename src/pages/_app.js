@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "../styles/color.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import Header from "../components/Header/Header"
 
 function MyApp({ Component, pageProps }) {
