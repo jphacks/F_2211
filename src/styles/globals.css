@@ -32,3 +32,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    border-radius: 1rem;
+}

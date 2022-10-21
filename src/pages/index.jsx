@@ -16,14 +16,14 @@ const Home = (props) => {
 
   const mapContainer = useRef(null);
   const map = useRef(null);
+  const [lng, setLng] = useState(0);
+  const [lat, setLat] = useState(0);
 
   const createMarkerElement = (shop) => {
     let el = document.createElement("div");
     let img = document.createElement("img");
 
-    // if (shop.id == "エネオス") {
-    img.src = "/coffee-pink.png";
-    // }
+    img.src = `/stores/${shop.brand_name}.png`;
     img.className = styles["pin-img"];
 
     el.appendChild(img);
@@ -33,62 +33,75 @@ const Home = (props) => {
     ptag.textContent = shop.brand_price;
     ptag.setAttribute("class", styles["brand-price"]);
     el.appendChild(ptag);
+    return el;
+  };
 
+  const createHomeMarkerElement = () => {
+    let el = document.createElement("div");
+    let img = document.createElement("img");
+
+    img.src = "/home_pin.svg";
+    img.className = styles["home-pin-img"];
+    el.appendChild(img);
     return el;
   };
 
   const createPopupHTML = (shop) => {
-    let brand;
-    if (shop.brand_name == "エネオス") {
-      brand = "/coffee-pink.png";
-    }
-
-    const html = `
-      <div class="map-infowindow"> 
-      <div class="info-header maker-'${shop.brand_name}'"></div>
-      <div class="shop-title">
-      <img src='${brand}' width="32px" height="32px" />
-      <p class="shop-name"><a target="_blank" href="${shop.url}">
-      ${shop.store_name} 
-      </a></p></div>
-      <div class="opentime">
-        <p>${shop.open_time}</p>
-      </div>
-      <div class="prices">
-        <div>
-          <p class="price-popup">¥${shop.brand_price}</p>
+    return `
+      <div class="${styles["map-infowindow"]}">
+        <div class="shop-title">
+          <img src="/stores/${shop.brand_name}.png" width="32px" height="32px" />
+          <p class="shop-name">
+            <a target="_blank" href="${shop.url}">
+              ${shop.store_name}
+            </a>
+          </p>
         </div>
-      </div>
+        <div class="opentime">
+          <p>${shop.open_time}</p>
+        </div>
+        <div class="prices">
+          <div>
+            <p class="price-popup">¥${shop.brand_price}</p>
+          </div>
+        </div>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&query=${lng},${lat}&destination=${shop.address}&travelmode=driving">
+          <button class="btn btn-primary">行き方</button>
+        </a>
       </div>`;
-
-    return html;
   };
 
-  const didEffect = useRef(false);
   useEffect(() => {
-    if (!didEffect.current) {
-      didEffect.current = true;
-
-      if (map.current) return;
-      data.map((shop) => {
-        map.current = new mapboxgl.Map({
-          container: mapContainer.current,
-          style: "mapbox://styles/mapbox/streets-v11",
-          center: shop.longlat,
-          zoom: 9,
-        });
-        const el = createMarkerElement(shop);
-        new mapboxgl.Marker(el)
-          .setLngLat(shop.longlat)
-          .setPopup(
-            new mapboxgl.Popup({ offset: [0, -40] }).setHTML(
-              createPopupHTML(shop)
+    if (map.current) return;
+    // 現在地取得
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLng(position.coords.longitude);
+      setLat(position.coords.latitude);
+    });
+    (async () => {
+      lng &&
+        lat &&
+        data.map(async (shop) => {
+          map.current = new mapboxgl.Map({
+            container: mapContainer.current,
+            style: "mapbox://styles/mapbox/streets-v11",
+            center: [lng, lat],
+            zoom: 15,
+          });
+          await new mapboxgl.Marker(createHomeMarkerElement())
+            .setLngLat([lng, lat])
+            .addTo(map.current);
+          await new mapboxgl.Marker(createMarkerElement(shop))
+            .setLngLat(shop.longlat)
+            .setPopup(
+              new mapboxgl.Popup({ offset: [0, -40] }).setHTML(
+                createPopupHTML(shop)
+              )
             )
-          ) // sets a popup on this marker
-          .addTo(map.current);
-      });
-    }
-  }, []);
+            .addTo(map.current);
+        });
+    })();
+  }, [lng, lat]);
 
   return (
     <div className={styles.container}>
@@ -103,26 +116,26 @@ const Home = (props) => {
 };
 
 export const getServerSideProps = async () => {
-  const ref = collection(db, "stores");
-  const Docs = await getDocs(query(ref, limit(1)));
+  const ref = collection(db, "stores_tokyo");
+  const Docs = await getDocs(query(ref, limit(10)));
   const data = Docs.docs.map((doc) => doc.data());
-  const sliceData = data.slice(0, 1);
 
-  const aa = sliceData.map((shop) => {
+  const completeData = data.map((shop) => {
     return {
-      store_name: "ドトールコーヒーショップ 川崎医科大学附属病院店",
-      brand_name: "エネオス",
-      address: "東京都渋谷区渋谷1-1-1",
-      open_time: "月～金 7:00～20:00",
-      brand_item: "カフェラテ",
-      phone_number: "03-1234-5678",
-      brand_price: 350,
-      longlat: [139.767125, 35.681236],
+      store_name: shop.store_name || "",
+      brand_name: shop.store_brand || "",
+      address: shop.address || "",
+      open_time: shop.open_time || "",
+      brand_item: shop.brand_item || "",
+      phone_number: shop.phone || "",
+      brand_price: shop.brand_price || 0,
+      longlat: [shop.longlat.longitude, shop.longlat.latitude] || [],
     };
   });
+
   return {
     props: {
-      data: aa,
+      data: completeData,
     },
   };
 };
