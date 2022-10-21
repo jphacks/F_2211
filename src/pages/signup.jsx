@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Input from "../components/Input/Input";
 import Button from "../components/Button/Button";
+import styles from "../styles/signup.module.css";
+import ImageContainer from "../components/ImageContainer/ImageContainer";
+import Link from "next/link";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -32,28 +35,44 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <p>SignUp</p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <Input
-          type="email"
-          name="email"
-          id="email"
-          width="40%"
-          onChange={(event) => handleChangeEmail(event)}
-        />
-        <label htmlFor="password">Password</label>
-        <Input
-          type="password"
-          name="password"
-          id="password"
-          width="40%"
-          onChange={(event) => handleChangePassword(event)}
-        />
-        <Button>登録</Button>
-      </form>
-    </>
+    <div className={styles.container}>
+      <div className={styles["signup-contents"]}>
+        <div className={styles["signup-title"]}>
+          <ImageContainer imagePath="/coffee.png" size="larger" />
+          <h1>A cup of coffee</h1>
+        </div>
+        <h2>Sing Up</h2>
+        <form onSubmit={handleSubmit} className={styles["signup-form"]}>
+          <Input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Please enter your Email"
+            width="50%"
+            style={{ borderRadius: "16px", marginTop: "16px" }}
+            onChange={(event) => handleChangeEmail(event)}
+          />
+          <Input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Please enter your Password"
+            width="50%"
+            style={{ borderRadius: "16px", marginTop: "16px" }}
+            onChange={(event) => handleChangePassword(event)}
+          />
+          <Button className={styles["signup-button"]}>Sign Up</Button>
+          <p style={{ display: "flex", marginTop: "16px", fontWeight: 600 }}>
+            ログインは
+            <Link href={"/signin"}>
+              <span style={{ color: "var(--pink1)", cursor: "pointer" }}>
+                こちら
+              </span>
+            </Link>
+          </p>
+        </form>
+      </div>
+    </div>
   );
 };
 
