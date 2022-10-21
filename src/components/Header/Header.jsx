@@ -31,12 +31,9 @@ const Header = () => {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        router.push("/");
         const userDoc = await getDoc(doc(db, "users", user.uid));
         const data = userDoc.data();
         setName(data.name);
-      } else {
-        router.push("/signin");
       }
     });
   }, []);
@@ -71,7 +68,7 @@ const Header = () => {
           </div>
         </Link>
         <div className={styles["header-right"]}>
-          {name && (
+          {name ? (
             <>
               <p style={{ marginRight: 16 }}>{name}さん、ようこそ！</p>
               <div
@@ -99,6 +96,10 @@ const Header = () => {
                 </div>
               )}
             </>
+          ) : (
+            <Link href={"/signin"}>
+              <p style={{ cursor: "pointer" }}>サインイン</p>
+            </Link>
           )}
         </div>
       </header>
