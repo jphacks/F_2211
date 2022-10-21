@@ -120,7 +120,7 @@ const Home = (props) => {
 };
 
 export const getServerSideProps = async () => {
-  const ref = collection(db, "store_tokyo");
+  const ref = collection(db, "stores_tokyo");
   // const Docs = await getDocs(query(ref, limit(20)));
   const Docs = await getDocs(ref);
   const data = Docs.docs.map((doc) => doc.data());
