@@ -59,19 +59,11 @@ const SignUp = () => {
     setPasswordConfirm(event.currentTarget.value);
   };
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        router.push("/");
-      }
-    });
-  }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles["signup-contents"]}>
         <div className={styles["signup-title"]}>
-          <ImageContainer imagePath="/coffee.svg" size="larger" />
+          <ImageContainer imagePath="/coffee-pink.png" size="larger" />
           <h1 style={{ marginLeft: 16 }}>A cup of coffee</h1>
         </div>
         <h2>Sing Up</h2>
