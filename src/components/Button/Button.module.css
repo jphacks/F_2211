@@ -19,7 +19,7 @@
   font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--black1);
+  color: var(--white1);
 }
 
 .button:hover {
