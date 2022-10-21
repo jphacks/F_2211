@@ -9,7 +9,7 @@ const Input = forwardRef(function Input(props, ref) {
   return (
     <div
       style={{ display: "flex", position: "relative", width: width }}
-      alignItems="center"
+      alignitems="center"
     >
       <input
         ref={ref}

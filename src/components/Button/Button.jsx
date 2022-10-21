@@ -7,12 +7,13 @@ const Button = (props) => {
     style,
     size = "large",
     disabled = false,
+    type = "button",
     children,
   } = props;
   return (
     <button
       disabled={disabled}
-      type="button"
+      type={type}
       className={` ${styles[size]} ${className} ${styles.button}`}
       onClick={onClick}
       style={style}
