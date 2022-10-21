@@ -1,0 +1,73 @@
+.container {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--pink2);
+  z-index: 10;
+}
+
+.header--section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--black2);
+  cursor: pointer;
+}
+
+.header--title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Helvetica Neue",
+    Arial, Meiryo, sans-serif;
+  margin-left: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  color: var(--black2);
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 3rem;
+  right: 1.6rem;
+  width: 8rem;
+  color: var(--black2);
+  background-color: var(--white2);
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0 0.5rem;
+}
+.menu p {
+  padding: 0.5rem;
+}
+
+.modal {
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  border-radius: 0.5rem;
+  margin: 10rem 20rem;
+  padding: 2rem;
+}
