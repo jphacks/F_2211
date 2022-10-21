@@ -39,7 +39,7 @@ const Home = (props) => {
     let el = document.createElement("div");
     let img = document.createElement("img");
 
-    img.src = "/home_pin.svg";
+    img.src = "/user_pin.svg";
     img.className = styles["home-pin-img"];
     el.appendChild(img);
     return el;
@@ -77,15 +77,16 @@ const Home = (props) => {
     //   setLng(1);
     // } else {
     (async () => {
+      if (mapContainer.current)
+        map.current = new mapboxgl.Map({
+          container: mapContainer.current,
+          style: "mapbox://styles/inuiyuki0904/cl9iyv4we000015pbhkvkmoa9",
+          center: [lng, lat],
+          zoom: 15,
+        });
       lng &&
         lat &&
         data.map(async (shop) => {
-          map.current = new mapboxgl.Map({
-            container: mapContainer.current,
-            style: "mapbox://styles/mapbox/streets-v11",
-            center: [lng, lat],
-            zoom: 15,
-          });
           await new mapboxgl.Marker(createHomeMarkerElement())
             .setLngLat([lng, lat])
             .addTo(map.current);
@@ -119,8 +120,9 @@ const Home = (props) => {
 };
 
 export const getServerSideProps = async () => {
-  const ref = collection(db, "stores_tokyo");
-  const Docs = await getDocs(query(ref, limit(10)));
+  const ref = collection(db, "store_tokyo");
+  // const Docs = await getDocs(query(ref, limit(20)));
+  const Docs = await getDocs(ref);
   const data = Docs.docs.map((doc) => doc.data());
 
   const completeData = data.map((shop) => {

@@ -19,7 +19,7 @@
 }
 
 .brand-price {
-  background-color: #07c;
+  background-color: var(--pink3);
   text-align: center;
   width: 40px;
   height: 20px;
@@ -96,5 +96,5 @@
   font-weight: 700;
   margin: 0 auto;
   color: var(--white1);
-  background-color: var(--pink2);
+  background-color: var(--pink3);
 }
