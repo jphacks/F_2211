@@ -56,7 +56,7 @@ const Home = (props) => {
         </div>
         <div class="${styles["shop-bottom"]}">
           <p class="${styles["time-shop"]}">${shop.open_time}</p>
-          <p class="${styles["price-shop"]}">¥${shop.brand_price}</p>
+          <p class="${styles["price-shop"]}"><span class="${styles["price-shop-title"]}">最安値：</span>¥${shop.brand_price}</p>
         </div>
         <a class="${styles["direction-shop"]}" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/dir/?api=1&query=${lng},${lat}&destination=${shop.address}&travelmode=driving">
           <p>行き方を調べる</p>
