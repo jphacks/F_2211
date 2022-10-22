@@ -1,6 +1,6 @@
 # A cup of coffee
 
-[![IMAGE](https://user-images.githubusercontent.com/84888290/197318451-e8a30892-93d0-441a-9f45-242fe82dd37f.png)](https://youtu.be/t7qK22mg6Lg)
+[![IMAGE](https://user-images.githubusercontent.com/84888290/197320611-ff9621dd-f1e4-429f-8a64-9dfba1dffe71.png)](https://youtu.be/t7qK22mg6Lg)
 
 
 ## 製品概要
