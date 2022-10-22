@@ -1,6 +1,6 @@
 # A cup of coffee
 
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2022/08/JPHACKS2022_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
+[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2022/08/JPHACKS2022_ogp.jpg)](https://youtu.be/t7qK22mg6Lg)
 
 ## 製品概要
 ————あなたは、一杯のコーヒーとカフェで過ごすことはありますか？その一杯を選ぶとき、味や品質はもちろん、一番気になるのは「値段」ではないでしょうか。金銭的に余裕のある時はちょっといいコーヒーを、ただ少し作業がしたい、待ち合わせがしたいから安いコーヒーを。
