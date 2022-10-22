@@ -46,3 +46,12 @@ a {
 .mapboxgl-popup-close-button {
   padding: 8px 12px;
 }
+
+li {
+  list-style: none;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}

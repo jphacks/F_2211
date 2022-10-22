@@ -103,3 +103,26 @@
   color: var(--white1);
   background-color: var(--pink3);
 }
+
+.filter {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 4rem;
+  left: 2rem;
+  z-index: 3;
+  padding: 0.25rem 0.7rem;
+  background-color: var(--white1);
+  border-radius: 8px;
+  border: 6px solid var(--pink2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.filter--item {
+  display: flex;
+  width: 16rem;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}

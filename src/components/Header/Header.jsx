@@ -1,12 +1,11 @@
-import { useState, useEffect, useRef } from "react";
-import styles from "./header.module.css";
-import ImageContainer from "../ImageContainer/ImageContainer";
-import Button from "../Button/Button";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 import { auth, db } from "../../lib/clientApp";
-import { signOut, onAuthStateChanged } from "firebase/auth";
-import { getDoc, doc } from "firebase/firestore";
+import ImageContainer from "../ImageContainer/ImageContainer";
+import styles from "./header.module.css";
 
 const Header = () => {
   const [name, setName] = useState("");
